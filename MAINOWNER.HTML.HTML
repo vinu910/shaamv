@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome to Jaipal's Professional Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .entry-screen, .main-content {
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background: linear-gradient(45deg, #1d2b64, #f8cdda);
+      color: white;
+      text-align: center;
+    }
+
+    .entry-screen h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .entry-screen button {
+      padding: 15px 30px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      background-color: #ffcc00;
+      color: black;
+      cursor: pointer;
+    }
+
+    .buddha-circle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 4px solid white;
+      object-fit: cover;
+      z-index: 3;
+      cursor: pointer;
+    }
+
+    /* ✅ Date-Time Display (Now on Left) */
+    .date-time {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 6px 12px;
+      border-radius: 8px;
+      z-index: 4;
+      font-family: 'Courier New', monospace;
+    }
+
+    .background-image {
+      background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2n_52TvdaxAq4Pmcl0S4qHUZMdwo0HmQheA&s') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .background-image::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #fff;
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .content h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: red;
+    }
+
+    .content p {
+      font-size: 1.8rem;
+      color: rgb(26, 211, 72);
+      margin-bottom: 30px;
+    }
+
+    .button-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .button-group a {
+      font-size: 0.9rem;
+      padding: 12px;
+      text-align: center;
+      background-color: #28a745;
+      border-radius: 5px;
+      color: #fff;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      border: 3px solid white;
+    }
+
+    .button-group a:hover {
+      background-color: #218838;
+    }
+
+    .button-group a.fms-link {
+      background-color: yellow;
+      color: black;
+    }
+
+    .button-group a.studio-link {
+      background-color: red;
+      color: white;
+    }
+
+    .button-group a.WEB-link {
+      background-color: purple;
+      color: white;
+    }
+
+    @media screen and (max-width: 768px) {
+      .content h1 {
+        font-size: 2rem;
+      }
+
+      .content p {
+        font-size: 1.2rem;
+      }
+
+      .buddha-circle {
+        width: 60px;
+        height: 60px;
+      }
+
+      .date-time {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Entry Screen -->
+  <div class="entry-screen" id="entryScreen">
+    <h1>Shaambhavi Manufacturers Pvt. Ltd.</h1>
+    <button onclick="enterSite()">Click to Enter</button>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content" id="mainContent" style="display: none;">
+    <!-- ✅ Date-Time Left Side -->
+    <div class="date-time" id="dateTime"></div>
+
+    <!-- Buddha Image (Right Side) -->
+    <img class="buddha-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa_lnEthmYdSHeukd_kUBtc_zW_UosqPW9C2R4la4cieHDNhWx9NBXpHw&s" alt="Gautam Buddha" onclick="goBack()">
+
+    <div class="background-image">
+      <div class="content">
+        <h1>Welcome to Gaurav Pasrija's Professional Page</h1>
+        <p>Shaambhavi Manufacturers Pvt. Ltd.</p>
+
+        <div class="button-group">
+          <a href="https://docs.google.com/spreadsheets/d/1PRNOZqsBny5huRXK9ujCCMHHkZi_YSuAoakSYnCdEn0/edit?gid=664701507#gid=664701507" target="_blank" class="fms-link">PO FMS</a>
+          <a href="https://docs.google.com/spreadsheets/d/1EriVZ_KvUum6UqjPRIh-iFKwSveAL9yXKRlh63nsSO0/edit?usp=sharing" target="_blank" class="fms-link">PO PRICE LIST [FILL ARUN]</a>
+          <a href="https://script.google.com/a/macros/shaambhavimanufacturers.com/s/AKfycbytb3anw23IzxdIJRZYpUX6HE59YHucgwwcVpLKLDJfewfhwB5hErM5bhOL7KBroSSF/exec" target="_blank">PO WEB FORM</a>
+          <a href="https://script.google.com/macros/s/AKfycbyPiSD8ju1PfU4ni4r-RBfu5t7JkM3d-hKs3tOqtk9CiC2840sfKcMIUj4DYQDDUzwB6Q/exec" target="_blank">FULL KITTING WEB FORM</a>
+          <a href="https://docs.google.com/spreadsheets/d/14My2Ple5uImYHLDGMwSTHb4ntTn-7oDcKhkFbYphlbE/edit?usp=sharing" target="_blank" class="fms-link">DELEGATION SHEET</a>
+          <a href="https://script.google.com/macros/s/AKfycbwulEBLocdZuM2eGbEX_tqseK_HytKXKSppNzYY5Y0vdWAtJhBvSgk7ZBkQ4loWSPOv3A/exec" target="_blank">DELEGATION WEB FORM</a>
+          <a href="https://docs.google.com/spreadsheets/d/1ZSnzccefPJbxNsF-uGlKL3-blml1RCUvAJqkxJwcx34/edit?usp=sharing" target="_blank" class="fms-link">CHECKLIST</a>
+          <a href="https://lookerstudio.google.com/reporting/ab708b44-464f-4a5a-8d98-e4f6b9292a76" target="_blank"class="studio-link">CHECKLIST DATA STUDIO</a>
+          <a href="https://lookerstudio.google.com/reporting/8ba6e8a2-3fe9-458f-8e39-a6c88f24ba5f" target="_blank"class="studio-link">CHECKLIST STUDIO OWNER</a>
+          <a href="https://docs.google.com/spreadsheets/d/1pNBZIBpBySgQjeFJ6t9rg9dunyS91EZ3s4_sFzq-q08/edit?usp=sharing" target="_blank" class="fms-link">IMS FMS</a>
+          <a href="https://lookerstudio.google.com/reporting/1f31e5d4-92dd-4d2b-ad52-165bfef7ddbd" target="_blank" class="studio-link">IMS STUDIO</a>
+          <a href="https://docs.google.com/spreadsheets/d/1rNCDVAu6_nLt9_th1-dI_RpUaeUTvUh1x3DLcw6W-1o/edit?usp=sharing" target="_blank">MIS SCORING</a>
+	  <a href="https://script.google.com/macros/s/AKfycbyxePrVfHG4CSP3bPF6GhF9vHUXpSnYQLKOHm2K7gY0yaQ4fiI6TeYCcNQItS-vDaoaZQ/exec" target="_blank">PMS WEB FORM/a>
+ 	  <a href="https://docs.google.com/spreadsheets/d/1FyQRJDiq4NAa-VdGVWuB5Tu0lLVibngCelIL5xz367Q/edit?gid=664701507#gid=664701507" target="_blank" class="studio-link">O2D</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function enterSite() {
+      document.getElementById('entryScreen').style.display = 'none';
+      document.getElementById('mainContent').style.display = 'block';
+      document.body.style.overflow = 'auto';
+    }
+
+    function goBack() {
+      document.getElementById('entryScreen').style.display = 'flex';
+      document.getElementById('mainContent').style.display = 'none';
+      document.body.style.overflow = 'hidden';
+    }
+
+    // ✅ Function for Live Date and Time (Left Side)
+    function updateDateTime() {
+      const now = new Date();
+      const date = now.toLocaleDateString('en-GB').replace(/\//g, '-');
+      const time = now.toLocaleTimeString('en-GB');
+      document.getElementById("dateTime").textContent = `${date} ${time}`;
+    }
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+  </script>
+</body>
+</html>
